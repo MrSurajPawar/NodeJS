@@ -29,7 +29,7 @@ const requestHandler = (req, res) => {
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split("=")[1];
       //   asynchronous File writing operation
-      fs.writeFile("message.txt", message, (err) => {
+      fs.writeFile("msg.txt", message, (err) => {
         res.statusCode = 302;
         res.setHeader("Location", "/");
         return res.end();
