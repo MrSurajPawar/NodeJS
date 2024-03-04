@@ -1,0 +1,13 @@
+{
+  "name": "node-essentials",
+  "version": "1.0.0",
+  "description": "This is the file where I did some practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node app.js",
+    "CustomName" : "node app.js"
+  },
+  "author": "Suraj Pawar",
+  "license": "ISC"
+}
