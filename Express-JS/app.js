@@ -1,26 +1,23 @@
-//const http = require("http"); //importing the core module
+const express = require("express");
+const bodyParser = require('body-parser');
+const app = express();
 
-const express = require('express');  //importing express js here passed e() function as object
+//Middlewares
+app.use(bodyParser.urlencoded({extended : false})); 
 
-const app = express();    //Creating an Express Application
-
-//All Middlewares goes down here
-//Middleware 1
-app.use('/add-product', (req, res, next) => {
-  console.log("In another Middleware");
-  res.send("<h1>This is 'Add Product' Page</h1>");
-  next();
-});
-//Middleware 2
-app.use('/', (req, res, next) => {
-  console.log("In Middleware");
-  res.send("<h1>This is Home Page</h1>");  // Move this line here
+app.get( "/add-product" , (req,res,next) => {
+  res.send("<form action='/product' method='POST'><input type='text' name='title' /><button type='submit'>Submit</button></form>");
 });
 
-// const server = http.createServer( app );
+app.post("/product" , (req, res, next) => {
+  console.log(req.body);    //to parse the body of the incoming request using the body parser
+  res.redirect("/");
+});
 
-// const portNo = 4000;
-// server.listen(portNo, () => {
-//   console.log("server is starting...");
-// });
+
+app.get( "/" , (req,res,next) => {
+  res.send("<h1>Hello From express</h1>");
+});
+
+//Calling server
 app.listen(4000);
