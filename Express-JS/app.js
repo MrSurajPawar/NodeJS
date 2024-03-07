@@ -6,17 +6,16 @@ const app = express();    //Creating an Express Application
 
 //All Middlewares goes down here
 //Middleware 1
-app.use( (req ,res, next) => {
-  console.log("In the MiddleWare");
-  next();   //allowing the request to proceed to the next middleware in the stack
-});
-
-//Middleware 2
-app.use( (req, res, next) => {
+app.use('/add-product', (req, res, next) => {
   console.log("In another Middleware");
-  res.send("<h1>Hello from middleware</h1>");
+  res.send("<h1>This is 'Add Product' Page</h1>");
+  next();
 });
-
+//Middleware 2
+app.use('/', (req, res, next) => {
+  console.log("In Middleware");
+  res.send("<h1>This is Home Page</h1>");  // Move this line here
+});
 
 // const server = http.createServer( app );
 
