@@ -18,7 +18,7 @@ app.use(shopRoutes);
 
 // what if someone typed another url or routes so we have to show them page not found error message 
 app.use((req ,res , next) => {
-    res.status(404).sendFile(path.join( __dirname , "views" , "404.html"));
+    res.status(404).sendFile(path.join(__dirname , "views" , "404.html"));
 });
 
 //Calling server
