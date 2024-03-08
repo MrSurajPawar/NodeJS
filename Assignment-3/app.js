@@ -10,12 +10,9 @@ const rootDir = require("./util/path.js");
 const app = express();
 
 //Middlewares
-// app.use((req ,res , next) => {
-//     const filePath = path.join(__dirname, "views", "404-2.html");
-//     console.log(filePath);
-// });
-
 app.use(bodyParser.urlencoded({extended : false}));
+app.use(express.static(path.join( __dirname , "public")) );
+app.use(express.static(path.join(__dirname , "public")) );
 
 app.use(userRoutes);    // "/user"
 app.use(homeRoutes);    // "/"
