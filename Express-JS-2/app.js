@@ -11,6 +11,8 @@ const bodyParser = require("body-parser");
 
 //Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static( path.join(__dirname, "public") ));
+
 app.use("/admin" , adminRoutes);       // Adding filters
 app.use(shopRoutes);
 
